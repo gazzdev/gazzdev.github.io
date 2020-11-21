@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("assets/fonts/CascadiaCode.woff2");
+}
+
+body {
+  font-family: "Cascadia Code PL";
+}
+
+.center {
+  text-align: center;
+}
