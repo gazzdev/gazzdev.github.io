@@ -8,12 +8,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "http-serve": "http-server -p 8080 -c-1 dist/gazzdev",
+    "serve:http": "http-server -p 8080 -c-1 dist/gazzdev",
     "dev:ssr": "ng run gazzdev:serve-ssr",
     "serve:ssr": "node dist/gazzdev/server/main.js",
     "build:ssr": "ng build --prod && ng run gazzdev:server:production",
     "prerender": "ng run gazzdev:prerender",
-    "docs": "cpx \"dist/gazzdev/browser/**/**.*\" docs"
+    "docs": "npm run delete:docs && cpx \"dist/gazzdev/browser/**/**.*\" docs",
+    "delete:docs": "del-cli --force docs",
+    "prerender:docs": "npm run prerender && npm run docs",
+    "serve:docs": "http-server -p 8080 -c-1 docs"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +46,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "cpx": "^1.5.0",
+    "del-cli": "^3.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.0",
